@@ -1,0 +1,35 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group = 'ru.mentee.power'
+version = '1.0-SNAPSHOT'
+
+application {
+    mainClass = 'ru.mentee.power.connection.SimpleConnection'
+}
+repositories {
+    mavenCentral()
+}
+
+tasks.withType(JavaExec) {
+    systemProperty "file.encoding", "UTF-8"
+    systemProperty "console.encoding", "UTF-8"
+    jvmArgs = ['-Dfile.encoding=UTF-8']
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    runtimeOnly 'org.postgresql:postgresql:42.6.0'
+}
+
+test {
+    useJUnitPlatform()
+}
