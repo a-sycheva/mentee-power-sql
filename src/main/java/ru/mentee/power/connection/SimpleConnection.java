@@ -19,7 +19,6 @@ public class SimpleConnection {
   public static void main(String[] args) {
     System.out.println("Testing connection to PostgreSQL...");
     System.out.println("Connecting to: " + URL);
-    System.out.println("Тестовый вывод на русском");
 
     try {
       // Подключаемся к БД
